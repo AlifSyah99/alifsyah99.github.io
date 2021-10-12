@@ -1,0 +1,178 @@
+*{
+    margin:0;
+    padding:0;
+}
+img{
+    width:100%;
+}
+body{
+    background-color: #ddd;
+    font-size: 18px;
+    font-family: 'Oswald',Arial,sans-serif;
+    margin: 50px;
+}
+/* kontainer */
+.container{
+    display: grid;
+    gap:10px;
+}
+/* header */
+.header{
+    display: grid;
+    grid-template-areas:  
+    'latar latar kopi1'
+    'latar  latar kopi2';
+}
+.latar{
+    grid-area:latar;
+    min-height:300px;
+    background-image: url(img/latar.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+}
+.latar h2,.latar p{
+    display: none;
+}
+.kopi{
+    background-color:black;
+    color:whitesmoke;
+    display:grid;
+    /* justify-content: center; horizontal
+    align-content:center ; vertikal*/ 
+   place-content: center; 
+    text-align: center;
+    cursor: pointer;
+}
+.kopi1{
+    grid-area: kopi1;
+    background-image: url(img/kopi1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.kopi2{
+    grid-area:kopi2;
+    background-image: url(img/kopi2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.kopi .price{
+    font-size: 2em;
+    font-weight: 200;
+}
+/* nav bar */
+.menu{
+    order:-1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+.menu .brand{
+    font-size:1.2em;
+    color:#333;
+}
+.menu .menu-list{
+    list-style: none;
+    display: grid; 
+    gap:5px;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+   
+}
+.menu a{
+    display: block;
+    text-decoration: none;
+    background-color: black;
+    color:white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 0.8em;
+}
+/* services */
+.services{
+    margin-top: 50px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    gap:5px;
+   
+}
+.service{
+    background-color:white;
+    border: 1px solid #333;
+    box-shadow:0 0 1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.services .Judul{
+    font-size: 1.5em;
+}
+.services .icon{
+    font-size: 2em;
+}
+.services p{
+    font-size: 0.9em;
+    font-weight: 200;
+
+}
+/* gallery */
+.gallery{
+    display:grid;
+    padding: 5px;
+    border:1px solid #333;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr) );
+    gap:5px;
+}
+.gallery h2{
+    grid-column:1/-1;
+    text-align: center;
+}
+
+
+  /*Responsive breakpoint  */
+  @media  (max-width:1024px){
+      .menu{
+          order:inherit;
+      }
+    .latar h2,.latar p{
+        display: block;
+        margin-bottom: 5px;
+        background-color: black;
+        color:white;
+    }
+    .latar{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .menu .brand{
+        display: none;
+    }
+    .menu{
+        grid-template-columns: 1fr;
+    }
+      
+}
+  /* @media (max-width:768px){
+      
+} */
+  @media (max-width:576px){
+      body{
+          margin:15px;
+      }
+      .menu{
+          display: none;
+      }
+      .header{
+        grid-template-areas: 
+        'latar'
+        'kopi1'
+        'kopi2';
+     }     
+      .services{
+          grid-template-columns: 1fr;
+      }
+      .kopi{
+          min-height: 150px;
+      }
+      
+}
